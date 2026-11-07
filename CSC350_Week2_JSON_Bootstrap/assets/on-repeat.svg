@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 660 720" role="img" aria-labelledby="title desc">
+  <title id="title">On Repeat vinyl illustration</title>
+  <desc id="desc">An original retro purple and orange music poster featuring a vinyl record and starbursts.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#7b488e"/>
+      <stop offset=".52" stop-color="#51366c"/>
+      <stop offset="1" stop-color="#33233f"/>
+    </linearGradient>
+    <linearGradient id="record" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#423153"/>
+      <stop offset=".5" stop-color="#1e182b"/>
+      <stop offset="1" stop-color="#433453"/>
+    </linearGradient>
+    <linearGradient id="label" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ffda9f"/>
+      <stop offset="1" stop-color="#f79b79"/>
+    </linearGradient>
+    <filter id="shadow" x="-30%" y="-30%" width="160%" height="160%"><feDropShadow dx="0" dy="26" stdDeviation="25" flood-opacity=".31"/></filter>
+    <pattern id="dots" width="34" height="34" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r="1" fill="#edd4ff" opacity=".18"/></pattern>
+  </defs>
+  <rect width="660" height="720" fill="url(#bg)"/>
+  <rect width="660" height="720" fill="url(#dots)"/>
+  <path d="M-70 82C80 0 185-15 295 45S550 128 744 11" fill="none" stroke="#f3b99d" stroke-opacity=".22" stroke-width="2"/>
+  <path d="M-70 117C80 35 185 20 295 80S550 163 744 46" fill="none" stroke="#f3b99d" stroke-opacity=".13" stroke-width="2"/>
+  <circle cx="580" cy="93" r="117" fill="#ffba87" opacity=".10"/>
+  <circle cx="72" cy="480" r="148" fill="#ffcba3" opacity=".09"/>
+  <g fill="#f6d5ab" opacity=".97">
+    <path d="M99 109l9 39 39 9-39 9-9 39-9-39-39-9 39-9z"/>
+    <path d="M545 192l8 28 28 8-28 8-8 28-8-28-28-8 28-8z"/>
+    <path d="M524 594l12 42 42 12-42 12-12 42-12-42-42-12 42-12z"/>
+  </g>
+  <g opacity=".55" fill="none" stroke="#fbc7ba" stroke-width="3">
+    <circle cx="95" cy="616" r="26"/>
+    <circle cx="95" cy="616" r="10"/>
+    <path d="M576 342v-42l33-8v41"/>
+    <circle cx="571" cy="342" r="8" fill="#fbc7ba" stroke="none"/>
+    <circle cx="604" cy="332" r="8" fill="#fbc7ba" stroke="none"/>
+  </g>
+  <g filter="url(#shadow)">
+    <circle cx="344" cy="365" r="234" fill="#d9b4e5" opacity=".32"/>
+    <circle cx="332" cy="350" r="227" fill="url(#record)" stroke="#ad78bd" stroke-width="5"/>
+    <circle cx="332" cy="350" r="205" fill="none" stroke="#d9a8e8" stroke-opacity=".16" stroke-width="2"/>
+    <circle cx="332" cy="350" r="189" fill="none" stroke="#d9a8e8" stroke-opacity=".24" stroke-width="2"/>
+    <circle cx="332" cy="350" r="173" fill="none" stroke="#d9a8e8" stroke-opacity=".15" stroke-width="2"/>
+    <circle cx="332" cy="350" r="157" fill="none" stroke="#d9a8e8" stroke-opacity=".23" stroke-width="2"/>
+    <circle cx="332" cy="350" r="141" fill="none" stroke="#d9a8e8" stroke-opacity=".15" stroke-width="2"/>
+    <circle cx="332" cy="350" r="125" fill="none" stroke="#d9a8e8" stroke-opacity=".25" stroke-width="2"/>
+    <path d="M156 211c87-114 266-111 353 8" fill="none" stroke="#fff" stroke-opacity=".12" stroke-width="12" stroke-linecap="round"/>
+    <circle cx="332" cy="350" r="102" fill="url(#label)" stroke="#e6a685" stroke-width="8"/>
+    <circle cx="332" cy="350" r="14" fill="#443047"/>
+    <circle cx="332" cy="350" r="6" fill="#f9d7ad"/>
+  </g>
+  <g font-family="Arial,Helvetica,sans-serif" font-weight="900" text-anchor="middle">
+    <text x="332" y="314" fill="#452b49" font-size="26" letter-spacing="8">ON</text>
+    <text x="332" y="394" fill="#452b49" font-size="30" letter-spacing="3">REPEAT</text>
+  </g>
+  <g font-family="Arial,Helvetica,sans-serif" font-size="15" font-weight="bold" fill="#ffe0c6" letter-spacing="7">
+    <text x="40" y="50">MUSIC FOR THE SOUL</text>
+    <text x="42" y="684">THE LISTENING ROOM</text>
+  </g>
+  <path d="M612 441c-32 26-48 50-49 80M615 516c-15-7-34-9-52-7" fill="none" stroke="#ffd4b4" stroke-width="4" stroke-linecap="round" opacity=".65"/>
+</svg>

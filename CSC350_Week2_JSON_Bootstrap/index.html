@@ -1,0 +1,166 @@
+<!doctype html>
+<!--
+  Student: Jacob Katzen
+  Assignment: CSC 350 — Week 2 Assignment: JSON and Bootstrap
+  Date: November 7, 2026
+  Purpose: Display a collection of favorite singers using JSON, JavaScript, and Bootstrap 5.
+-->
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#15121f">
+  <meta name="description" content="A personal collection of favorite singers and the songs worth replaying, powered by JSON and Bootstrap 5.">
+  <title>The Listening Room | My Favorite Singers</title>
+
+  <!-- Bootstrap 5.3.6 is bundled locally so the site works without Internet. -->
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <div class="page-shell">
+    <header class="container site-header" aria-label="Site header">
+      <a class="brand d-inline-flex align-items-center gap-3 text-decoration-none" href="#home" aria-label="The Listening Room home">
+        <span class="brand-mark" aria-hidden="true">♫</span>
+        <span class="brand-name">THE LISTENING<span class="accent-dot">.</span>ROOM</span>
+      </a>
+      <span class="header-meta d-none d-sm-inline">A PERSONAL MUSIC COLLECTION <span aria-hidden="true">✳</span> VOL. 01</span>
+    </header>
+
+    <main id="home" class="container">
+      <section class="hero" aria-labelledby="page-heading">
+        <div class="eyebrow d-flex align-items-center gap-2">
+          <span class="eyebrow-line" aria-hidden="true"></span>
+          ON MY PLAYLIST / 2026
+        </div>
+        <div class="row align-items-end gy-4">
+          <div class="col-lg-9">
+            <h1 id="page-heading">The voices I keep<br><span>on repeat<span class="hero-period">.</span></span></h1>
+            <p class="hero-description mb-0">Great songs stay with you. Here's a little collection of artists, hometowns, and tracks that deserve another listen.</p>
+          </div>
+          <div class="col-lg-3">
+            <div class="hero-stats d-flex align-items-center justify-content-lg-end gap-3">
+              <span class="stats-number" id="hero-count">06</span>
+              <span class="stats-caption">ARTISTS<br>IN ROTATION</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Required Bootstrap grid: picture in .col-sm-4, table in .col-sm-8. -->
+      <section class="row g-4 lineup-section" aria-label="Favorite singer collection">
+        <div class="col-sm-4">
+          <figure class="artwork-panel h-100 mb-0">
+            <img class="artwork-image img-fluid w-100" src="assets/on-repeat.svg"
+                 alt="Retro illustration of a purple and orange vinyl record with stars, music notes, and the words On Repeat">
+            <figcaption class="artwork-caption">
+              <div class="d-flex align-items-center justify-content-between gap-2">
+                <span class="mini-label">THE SOUNDTRACK</span>
+                <span class="sparkle" aria-hidden="true">✳</span>
+              </div>
+              <p class="artwork-title mb-1">Good music.<br>Good company.</p>
+              <p class="artwork-subtitle mb-0">A few favorites, all in one place.</p>
+            </figcaption>
+          </figure>
+        </div>
+
+        <div class="col-sm-8">
+          <div class="table-panel h-100">
+            <div class="table-panel-head d-flex align-items-start justify-content-between gap-3 flex-wrap">
+              <div>
+                <p class="mini-label section-kicker mb-2">SIDE A / THE FAVORITES</p>
+                <h2 class="panel-title mb-0">Meet the lineup<span class="accent-dot">.</span></h2>
+              </div>
+              <span class="count-pill" id="artist-count">06 ARTISTS</span>
+            </div>
+
+            <div class="search-area">
+              <label class="search-label" for="artist-search">FIND AN ARTIST OR SONG</label>
+              <div class="search-control">
+                <span class="search-symbol" aria-hidden="true">⌕</span>
+                <input class="form-control artist-search" type="search" id="artist-search"
+                       autocomplete="off" placeholder="Try Olivia, Flowers, or R&B…">
+              </div>
+            </div>
+
+            <div class="table-responsive" aria-label="Singer table, horizontally scrollable on smaller screens">
+              <table class="table table-hover align-middle singer-table mb-0">
+                <caption class="visually-hidden">Favorite singers, their hometowns, musical styles, and standout songs</caption>
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">ARTIST</th>
+                    <th scope="col">HOMETOWN</th>
+                    <th scope="col">GENRE</th>
+                    <th scope="col">FAVORITE TRACKS</th>
+                  </tr>
+                </thead>
+                <!-- JavaScript inserts one row per singer from the JSON data below. -->
+                <tbody id="singers-body"></tbody>
+              </table>
+            </div>
+
+            <div class="table-panel-footer d-flex justify-content-between align-items-center flex-wrap gap-3">
+              <p id="table-status" class="table-status mb-0" aria-live="polite">Loading the lineup…</p>
+              <button type="button" id="reset-search" class="btn reset-button">Show all artists <span aria-hidden="true">↗</span></button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <footer class="site-footer d-flex justify-content-between flex-wrap gap-2" aria-label="Site footer">
+        <span>MADE FOR THE LOVE OF MUSIC <span aria-hidden="true">✳</span></span>
+        <span>CSC 350 · WEEK 02 · JSON + BOOTSTRAP 5</span>
+      </footer>
+    </main>
+  </div>
+
+  <!-- Valid JSON embedded in HTML (not a JavaScript object literal).
+       JSON.parse() in js/main.js reads this object and builds the table.
+       Keeping JSON on the page allows index.html to work via file:// with no server. -->
+  <script type="application/json" id="singers-json">
+  {
+    "singers": [
+      {
+        "name": "Smash Mouth",
+        "hometown": "San Jose, California",
+        "genre": "Alternative / Indie, Rock",
+        "songs": ["All Star", "Hot", "Walkin' On The Sun"]
+      },
+      {
+        "name": "Ling Tosite Sigure",
+        "hometown": "Saitama Prefecture, Japan",
+        "genre": "Post-Hardcore, Progressive Rock, Math Rock",
+        "songs": ["Loo% Who%", "Disco Flight"]
+      },
+      {
+        "name": "Coldplay",
+        "hometown": "London, United Kingdom",
+        "genre": "Pop Rock, Alternative Rock, Post-Britpop",
+        "songs": ["Viva La Vida", "Adventure Of A Lifetime"]
+      },
+      {
+        "name": "Mötley Crüe",
+        "hometown": "Hollywood, California",
+        "genre": "Heavy Metal, Glam Metal, Hard Rock",
+        "songs": ["Kickstart My Heart", "Wild Side"]
+      },
+      {
+        "name": "Hello Sleepwalkers",
+        "hometown": "Okinawa, Japan",
+        "genre": "Rock",
+        "songs": ["午夜の待ち合わせ - Goyanomachiawase", "DEAD END"]
+      },
+      {
+        "name": "Yes",
+        "hometown": "London, United Kingdom",
+        "genre": "Progressive Rock",
+        "songs": ["Roundabout", "Owner Of A Lonely Heart"]
+      }
+    ]
+  }
+  </script>
+
+  <script src="js/main.js" defer></script>
+</body>
+</html>
